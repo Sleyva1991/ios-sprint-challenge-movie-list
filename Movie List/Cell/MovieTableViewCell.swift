@@ -10,13 +10,11 @@ import UIKit
 
 
 protocol MovieTableViewCellDelegate: class {
-   func unseenButtonWasTapped(on cell: MovieTableViewCell)
+    func unseenButtonWasTapped(on cell: MovieTableViewCell)
 }
 
 class MovieTableViewCell: UITableViewCell {
     
- 
-   
     @IBOutlet weak var isSeenButton: UIButton!
     @IBOutlet weak var movieLabel: UILabel!
     
@@ -27,7 +25,7 @@ class MovieTableViewCell: UITableViewCell {
             updateViews()
         }
     }
-
+    
     @IBAction func notSeenButtonPressed(_ sender: UIButton) {
         self.delegate?.unseenButtonWasTapped(on: self)
     }
