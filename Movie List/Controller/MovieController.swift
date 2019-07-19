@@ -23,7 +23,12 @@ class MovieController {
     }
     
     func toggleIsLiked(for movie: Movie) {
-        guard let indx = movies.firstIndex(of: movie) else { return }
-        movies[index].seen = !movie.seen
+        guard let index = movies.firstIndex(of: movie) else { return }
+         movies[index].seen = !movie.seen
+        
+    }
+    func deleteMovie(movie: Movie) {
+        guard let index = movies.firstIndex(of: movie) else { return }
+        movies.remove(at: index)
     }
 }

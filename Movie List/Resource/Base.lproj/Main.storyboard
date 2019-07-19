@@ -30,7 +30,7 @@
                                             <rect key="frame" x="317" y="0.0" width="97" height="44"/>
                                             <state key="normal" title="Not Seen"/>
                                             <connections>
-                                                <action selector="notSeenButtonPressed:" destination="DLJ-zH-e2L" eventType="touchUpInside" id="UWu-MR-7Tq"/>
+                                                <action selector="notSeenButtonPressed:" destination="DLJ-zH-e2L" eventType="touchUpInside" id="IWe-Xv-FpU"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E53-Nb-0s8">
@@ -49,7 +49,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="isSeenButton" destination="5f6-WS-Jeq" id="aCC-kY-eTp"/>
+                                    <outlet property="isSeenButton" destination="5f6-WS-Jeq" id="iRz-9J-wWu"/>
                                     <outlet property="movieLabel" destination="E53-Nb-0s8" id="NXK-hg-GrQ"/>
                                 </connections>
                             </tableViewCell>
