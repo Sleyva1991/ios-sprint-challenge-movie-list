@@ -13,13 +13,13 @@
         <!--Movie List-->
         <scene sceneID="fLo-aA-zby">
             <objects>
-                <tableViewController id="uHO-Ai-hDl" sceneMemberID="viewController">
+                <tableViewController id="uHO-Ai-hDl" customClass="MovieTableViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HVi-9i-1tx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="DLJ-zH-e2L">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="DLJ-zH-e2L" customClass="MovieTableViewCell" customModule="Movie_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DLJ-zH-e2L" id="e4u-TC-tSO">
@@ -28,10 +28,13 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5f6-WS-Jeq">
                                             <rect key="frame" x="317" y="0.0" width="97" height="44"/>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" title="Not Seen"/>
+                                            <connections>
+                                                <action selector="notSeenButtonPressed:" destination="DLJ-zH-e2L" eventType="touchUpInside" id="UWu-MR-7Tq"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E53-Nb-0s8">
-                                            <rect key="frame" x="0.0" y="0.0" width="249" height="44"/>
+                                            <rect key="frame" x="9" y="0.0" width="240" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -41,10 +44,14 @@
                                         <constraint firstAttribute="trailing" secondItem="5f6-WS-Jeq" secondAttribute="trailing" id="Rw3-S6-hcU"/>
                                         <constraint firstAttribute="bottom" secondItem="5f6-WS-Jeq" secondAttribute="bottom" id="UZX-gQ-N1g"/>
                                         <constraint firstItem="5f6-WS-Jeq" firstAttribute="top" secondItem="e4u-TC-tSO" secondAttribute="top" id="kgQ-KX-ERe"/>
-                                        <constraint firstItem="E53-Nb-0s8" firstAttribute="leading" secondItem="e4u-TC-tSO" secondAttribute="leadingMargin" id="waw-vN-Cz5"/>
+                                        <constraint firstItem="E53-Nb-0s8" firstAttribute="leading" secondItem="e4u-TC-tSO" secondAttribute="leadingMargin" constant="8" id="waw-vN-Cz5"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="E53-Nb-0s8" secondAttribute="bottom" id="y0y-NC-reC"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isSeenButton" destination="5f6-WS-Jeq" id="aCC-kY-eTp"/>
+                                    <outlet property="movieLabel" destination="E53-Nb-0s8" id="NXK-hg-GrQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -58,7 +65,7 @@
                     <navigationItem key="navigationItem" title="Movie List" id="fwr-dF-Xmh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="00Q-bb-Ia0">
                             <connections>
-                                <segue destination="GPz-NV-SZs" kind="show" id="Rhc-NJ-A36"/>
+                                <segue destination="GPz-NV-SZs" kind="show" identifier="MovieSegue" id="Rhc-NJ-A36"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -68,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="784.05797101449286" y="157.36607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie View Controller-->
         <scene sceneID="CLv-lZ-Pis">
             <objects>
-                <viewController id="GPz-NV-SZs" sceneMemberID="viewController">
+                <viewController id="GPz-NV-SZs" customClass="MovieViewController" customModule="Movie_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dO-7M-sry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +101,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T9-am-o2e">
                                         <rect key="frame" x="0.0" y="82" width="398" height="30"/>
                                         <state key="normal" title="Add Movie"/>
+                                        <connections>
+                                            <action selector="addMovieButtonPressed:" destination="GPz-NV-SZs" eventType="touchUpInside" id="yCt-GU-UkA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -106,6 +116,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dg4-S2-SjO"/>
                     </view>
+                    <connections>
+                        <outlet property="movieTextField" destination="IWz-Wj-ZpN" id="PAg-j0-8rs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHF-4T-uvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
